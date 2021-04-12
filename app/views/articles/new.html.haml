@@ -2,13 +2,9 @@
   %ul
     - @article.errors.full_messages.each do |message|
       %li= message
-  = form_with(model: article, local: true) do |f|
-    %div
-      = f.label :eyecatch, 'アイキャッチ'
-    %div
-      = f.file_field :eyecatch
-    %div
-      = f.label :content, '内容'
+  = form_with(model: @article, local: true) do |f|
     %div
       = f.rich_text_area :content
+    %div
+      = f.file_field :portraits, multiple: true
     = f.submit '保存', class: 'btn-primary'

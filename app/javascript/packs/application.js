@@ -15,3 +15,19 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+require("trix")
+require("@rails/actiontext")
+
+window.addEventListener('load', () => {
+    const uploader = document.querySelector('.uploader');
+    uploader.addEventListener('change', (e) => {
+      const file = uploader.files[0];
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        const image = reader.result;
+        document.querySelector('.avatar').setAttribute('src', image);
+      }
+    });
+});

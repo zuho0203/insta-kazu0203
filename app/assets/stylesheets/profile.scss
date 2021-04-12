@@ -2,8 +2,32 @@
 
 $image_size: 56px;
 
+.main_count {
+  text-align: center;
+}
+
+.posts_count {
+  float: left;
+  width: 50%;
+}
+
+.followers_count {
+  float: left;
+  width: 50%;
+}
+
+.following_count {
+  float: left;
+  width: 50%;
+}
+
 .profilePage {
   margin-top: 24px;
+
+  &_accout {
+    text-align: center;
+    color: white;
+  }
 
   &_user {
     margin-bottom: 32px;

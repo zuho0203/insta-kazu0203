@@ -1,0 +1,21 @@
+.container
+  %header.header
+    - if !current_page?(root_path)
+      = link_to :back do
+        = image_tag 'back.svg', class: 'header_back'
+    .profilePage_account
+      = @account
+  .profilePage_user_image
+    = form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f|
+      = f.label :image do
+        = image_tag current_user.profile.avatar, class: 'avatar'
+        = f.file_field :image, class: 'uploader', style: 'display:none'
+    .main_count
+      .posts_count
+      Posts
+      .followers_count
+      Followers
+      .following_count
+      Following
+  .post_pic
+    ここに投稿した画像を表示する

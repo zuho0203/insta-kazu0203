@@ -25,47 +25,18 @@ import { csrfToken } from 'rails-ujs'
 
 axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
 
-// window.addEventListener('load', () => {
-//     const uploader = document.querySelector('.uploader');
-//     uploader.addEventListener('change', (e) => {
-//       const file = uploader.files[0];
-//       const reader = new FileReader();
-//       reader.readAsDataURL(file);
-//       reader.onload = () => {
-//         const image = reader.result;
-//         document.querySelector('.avatar').setAttribute('src', image);
-//       }
-//     });
-// });
-
-
-  // $('.inactive-heart').on('click', () => {
-  //   axios.post(`/api/articles/${articleId}/like`)
-  //     .then((response) => {
-  //       if (response.data.status === 'ok') {
-  //         $('.active-heart').removeClass('hidden')
-  //         $('.inactive-heart').addClass('hidden')
-  //       }
-  //     })
-  //     .catch((e) => {
-  //       window.alert('Error')
-  //       console.log(e)
-  //     })
-  // })
-
-  // $('.active-heart').on('click', () => {
-  //   axios.delete(`/api/articles/${articleId}/like`)
-  //     .then((response) => {
-  //       if (response.data.status === 'ok') {
-  //         $('.active-heart').addClass('hidden')
-  //         $('.inactive-heart').removeClass('hidden')
-  //       }
-  //     })
-  //     .catch((e) => {
-  //       window.alert('Error')
-  //       console.log(e)
-  //     })
-  // })
+window.addEventListener('load', () => {
+    const uploader = document.querySelector('.uploader');
+    uploader.addEventListener('change', (e) => {
+      const file = uploader.files[0];
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        const image = reader.result;
+        document.querySelector('.avatar').setAttribute('src', image);
+      }
+    });
+});
 
 const handleHeartDisplay = (hasLiked) => {
   if (hasLiked) {

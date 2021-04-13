@@ -19,15 +19,95 @@ require("channels")
 require("trix")
 require("@rails/actiontext")
 
-window.addEventListener('load', () => {
-    const uploader = document.querySelector('.uploader');
-    uploader.addEventListener('change', (e) => {
-      const file = uploader.files[0];
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => {
-        const image = reader.result;
-        document.querySelector('.avatar').setAttribute('src', image);
-      }
-    });
-});
+import $ from 'jquery'
+import axios from 'axios'
+import { csrfToken } from 'rails-ujs'
+
+axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
+
+// window.addEventListener('load', () => {
+//     const uploader = document.querySelector('.uploader');
+//     uploader.addEventListener('change', (e) => {
+//       const file = uploader.files[0];
+//       const reader = new FileReader();
+//       reader.readAsDataURL(file);
+//       reader.onload = () => {
+//         const image = reader.result;
+//         document.querySelector('.avatar').setAttribute('src', image);
+//       }
+//     });
+// });
+
+
+  // $('.inactive-heart').on('click', () => {
+  //   axios.post(`/api/articles/${articleId}/like`)
+  //     .then((response) => {
+  //       if (response.data.status === 'ok') {
+  //         $('.active-heart').removeClass('hidden')
+  //         $('.inactive-heart').addClass('hidden')
+  //       }
+  //     })
+  //     .catch((e) => {
+  //       window.alert('Error')
+  //       console.log(e)
+  //     })
+  // })
+
+  // $('.active-heart').on('click', () => {
+  //   axios.delete(`/api/articles/${articleId}/like`)
+  //     .then((response) => {
+  //       if (response.data.status === 'ok') {
+  //         $('.active-heart').addClass('hidden')
+  //         $('.inactive-heart').removeClass('hidden')
+  //       }
+  //     })
+  //     .catch((e) => {
+  //       window.alert('Error')
+  //       console.log(e)
+  //     })
+  // })
+
+const handleHeartDisplay = (hasLiked) => {
+  if (hasLiked) {
+    $('.active-heart').removeClass('hidden')
+  } else {
+    $('.inactive-heart').removeClass('hidden')
+  }
+}
+
+document.addEventListener('turbolinks:load', () => {
+  const dataset = $('#article-show').data()
+  const articleId = dataset.articleId
+  axios.get(`/articles/${articleId}/like`)
+    .then((response) => {
+      const hasLiked = response.data.hasLiked
+      handleHeartDisplay(hasLiked)
+  })
+  $('.inactive-heart').on('click', () => {
+    axios.post(`/articles/${articleId}/like`)
+      .then((response) => {
+        if (response.data.status === 'ok') {
+          $('.active-heart').removeClass('hidden')
+          $('.inactive-heart').addClass('hidden')
+        }
+      })
+      .catch((e) => {
+        window.alert('Error')
+        console.log(e)
+      })
+  })
+
+  $('.active-heart').on('click', () => {
+    axios.delete(`/articles/${articleId}/like`)
+      .then((response) => {
+        if (response.data.status === 'ok') {
+          $('.active-heart').addClass('hidden')
+          $('.inactive-heart').removeClass('hidden')
+        }
+      })
+      .catch((e) => {
+        window.alert('Error')
+        console.log(e)
+      })
+  })
+})

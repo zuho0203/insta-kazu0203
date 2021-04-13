@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_one :profile, dependent: :destroy
   has_many :articles, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   def prepare_profile
     profile || build_profile
@@ -17,5 +18,13 @@ class User < ApplicationRecord
     else
       'default-avatar.png'
     end
+  end
+
+  def has_written?(article)
+    articles.exists?(id: article.id)
+  end
+
+  def has_liked?(article)
+    likes.exists?(article_id: article.id)
   end
 end

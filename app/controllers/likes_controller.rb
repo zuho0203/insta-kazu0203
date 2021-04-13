@@ -4,13 +4,13 @@ class LikesController < ApplicationController
   def show
      article = Article.find(params[:article_id])
      like_status = current_user.has_liked?(article)
-     redirect_to article_path(article)
+
   end
 
   def create
     article = Article.find(params[:article_id])
     article.likes.create!(user_id: current_user.id)
-
+    redirect_to article_path(article)
   end
 
   def destroy

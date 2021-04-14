@@ -9,7 +9,6 @@ class CommentsController < ApplicationController
       comments = article.comments
 
       render json: comments
-      
     end
 
     def create
@@ -17,8 +16,15 @@ class CommentsController < ApplicationController
       @comment = article.comments.build(comment_params)
       @comment.save!
 
-      render json: @comment
+      render json: @account
     end
+
+    def destroy
+        comment = current_user.comment.find(params[:id])
+        comment.destroy!
+        redirect_to root_path, notice: '削除に成功しました'
+      end
+
     
       private
       def comment_params

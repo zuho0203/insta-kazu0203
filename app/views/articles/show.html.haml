@@ -1,5 +1,6 @@
 = link_to 'Twitterのアイコン', "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank'
-.article#article-show{data: {article_id: @article.id}}
+#article-show{data: {article_id: @article.id}}
+.article
   - if @article.portraits.attached?
     .card_image
     - @article.portraits.each do |portrait|
@@ -32,3 +33,4 @@
   = link_to new_article_comment_path(@article) do
     .btn-secondary
       + add new comment
+      

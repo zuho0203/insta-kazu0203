@@ -8,21 +8,25 @@ class CommentsController < ApplicationController
       article = Article.find(params[:article_id])
       comments = article.comments
 
-      render json: comments
-      
+      render json: comments, include: { user: [ :profile] }
+
     end
 
     def create
       article = Article.find(params[:article_id])
-
       @comment = article.comments.build(comment_params)
-      if @comment.save
-        redirect_to article_path(article), notice: 'コメントを追加'
-      else
-        flash.now[:error] = '更新できませんでした'
-        render :new
-      end
+      @comment.save!
+
+      render json: @account, include: { user: [ :profile] }
+
     end
+
+    def destroy
+        comment = current_user.comment.find(params[:id])
+        comment.destroy!
+        redirect_to root_path, notice: '削除に成功しました'
+      end
+
     
       private
       def comment_params

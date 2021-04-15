@@ -54,9 +54,10 @@ document.addEventListener('turbolinks:load', () => {
     .then((response) => {
       const comments = response.data
       comments.forEach((comment) => {
+        
         $('.comments-container').append(
-          `<p></p><div class="article_comment"><p>${comment.content}</p></div>`
-          
+          `<div><img class="card_detail" src='${comment.user.avatar_url}'></div>
+          <p>${comment.user.account}</p></p><div class="article_comment"><p>${comment.content}</p></div>`
           
         )
       })
@@ -67,23 +68,23 @@ document.addEventListener('turbolinks:load', () => {
       $('.comment-text-area').removeClass('hidden')
   })
 
-  // $('.add-comment-button').on('click', () => {
-  //   const content = $('#comment_content').val()
-  //   if (!content) {
-  //     window.alert('コメントを入力してください')
-  //   } else {
-  //     axios.post(`/articles/${articleId}/comments`, {
-  //       comment: {content: content}
-  //     })
-  //       .then((res) => {
-  //         const comment = res.data
-  //         $('.comments-container').append(
-  //           `<div class="article_comment"><p>${comment.content}</p></div>`
-  //         )
-  //         $('#comment_content').val('')
-  //       })
-  //   }
-  // })
+  $('.add-comment-button').on('click', () => {
+    const content = $('#comment_content').val()
+    if (!content) {
+      window.alert('コメントを入力してください')
+    } else {
+      axios.post(`/articles/${articleId}/comments`, {
+        comment: {content: content}
+      })
+        .then((res) => {
+          const comment = res.data
+          $('.comments-container').append(
+            `<div class="article_comment"><p>${comment.content}</p></div>`
+          )
+          $('#comment_content').val('')
+        })
+    }
+  })
 
 
 

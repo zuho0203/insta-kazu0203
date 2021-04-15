@@ -56,8 +56,8 @@ document.addEventListener('turbolinks:load', () => {
       comments.forEach((comment) => {
         
         $('.comments-container').append(
-          `<div><img class="card_detail" src='${comment.user.avatar_url}'></div>
-          <p>${comment.user.account}</p></p><div class="article_comment"><p>${comment.content}</p></div>`
+          `<img class="card_detail" src='${comment.user.avatar_url}'>
+          <p>${comment.user.account}</p></p><p>${comment.content}</p>`
           
         )
       })
@@ -78,8 +78,10 @@ document.addEventListener('turbolinks:load', () => {
       })
         .then((res) => {
           const comment = res.data
+          
           $('.comments-container').append(
-            `<div class="article_comment"><p>${comment.content}</p></div>`
+          `<img class="card_detail" src='${comment.user.avatar_url}'>
+          <p>${comment.user.account}</p></p><p>${comment.content}</p>`
           )
           $('#comment_content').val('')
         })

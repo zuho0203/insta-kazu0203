@@ -1,0 +1,17 @@
+.container
+  .profilePage_user_actionButton
+    - if @user == current_user
+      = link_to 'Edit', edit_profile_path
+    - else
+      - if current_user&.has_followed?(@user)
+        = link_to 'Unfollow', account_unfollows_path(@user), data: {method: 'post' }
+      -else
+        = link_to 'Follow', account_follows_path(@user), data: {method: 'post' }
+  .main_count
+    .posts_count
+    Posts
+    .followers_count
+    Followers
+    .following_count
+    Following
+  = image_tag @user.profile.avatar, class: 'avatar'

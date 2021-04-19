@@ -29,6 +29,7 @@ gem 'hamlit'
 gem 'devise'
 gem 'active_model_serializers'
 gem 'sidekiq'
+gem 'active_decorator'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'articles#index'
   resource :timeline, only: [:show]
+  resource :followinguser, only: [:show]
+  resource :followeruser, only: [:show]
+
 
   resources :articles do
     resource :like, only: [:show, :create, :destroy]

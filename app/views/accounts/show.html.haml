@@ -18,15 +18,3 @@
       Following
       = @user.followings.count
   = image_tag @user.profile.avatar, class: 'avatar'
-  .card_content
-    .card_detail
-    フォロワー一覧
-    - @user.followings.each do |user|
-      = image_tag user.profile.avatar
-      = user.account
-  .card_content
-    .card_detail
-    フォロー一覧
-    - @user.followers.each do |user|
-      = image_tag user.profile.avatar
-      = user.account

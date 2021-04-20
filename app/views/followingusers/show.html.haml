@@ -1,0 +1,6 @@
+.container
+  %h2
+    Followings
+  - @user.each do |user|
+    = image_tag user.profile.avatar
+    = user.account

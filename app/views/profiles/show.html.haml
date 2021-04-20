@@ -15,11 +15,11 @@
         Posts
         = current_user.articles.count
       .followers_count
-        Followers
         = current_user.followers.count
+        = link_to 'Followers', followeruser_path
       .following_count
-        Following
         = current_user.followings.count
+        = link_to 'Followings', followinguser_path
   .post_pic
     ここに投稿した画像を表示する
     = link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' }

@@ -9,9 +9,12 @@
         = link_to 'Follow', account_follows_path(@user), data: {method: 'post' }
   .main_count
     .posts_count
-    Posts
+      Posts
+      = @user.articles.count
     .followers_count
-    Followers
+      Followers
+      = @user.followers.count
     .following_count
-    Following
+      Following
+      = @user.followings.count
   = image_tag @user.profile.avatar, class: 'avatar'

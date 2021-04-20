@@ -8,8 +8,8 @@
       .card_detail
         = image_tag article.user.avatar_image
         = article.user.account
-        .card_detail_time
-          = time_ago_in_words(article.created_at)
+      .card_detail_time
+        = time_ago_in_words(article.created_at)+ ' ago '
       .card_title
         = article.content
       .card_heart

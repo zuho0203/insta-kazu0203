@@ -13,8 +13,13 @@ $avatar-size: 32px;
     margin-bottom: 8px;
   }
 
+    &_detail_time {
+    font-size :10px;
+  }
+
   &_heart {
     display: flex;
+  
 
     img {
       width: $heart-size;

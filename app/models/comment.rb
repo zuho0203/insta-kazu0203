@@ -4,7 +4,7 @@ class Comment < ApplicationRecord
 
     validates :content, presence: true
 
-    after_create :send_email
+    # after_create :send_email
 
     private
     def send_email

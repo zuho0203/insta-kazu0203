@@ -1,25 +1,31 @@
-.container
-  %header.header
-    - if !current_page?(root_path)
-      = link_to :back do
-        = image_tag 'back.svg', class: 'header_back'
-    .profilePage_account
-      = @account
-  .profilePage_user_image
-  = form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f|
-    = f.label :image do
-      = image_tag current_user.profile.avatar, class: 'avatar'
-      = f.file_field :image, class: 'uploader', style: 'display:none'
-    .main_count
-      .posts_count
-        Posts
+.inner
+  %p.profile-name
+    = @account
+  .circle-avatar
+    = image_tag current_user.profile.avatar
+  .profile-text
+    .profile-two
+      %p.profile-num
         = current_user.articles.count
-      .followers_count
-        = current_user.followers.count
-        = link_to 'Followers', followeruser_path
-      .following_count
-        = current_user.followings.count
-        = link_to 'Followings', followinguser_path
-  .post_pic
-    ここに投稿した画像を表示する
-    = link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' }
+      %p.profile-string
+        Posts
+    .profile-two.follower-following-wrap
+      = link_to followeruser_path, class: 'profile_info follower' do
+        .profile-num.profile-num2 #{current_user.followers.count}
+        %p.profile-string Followers
+    .profile-two.follower-following-wrap
+      = link_to followinguser_path, class: 'profile_info following' do
+        .profile-num.profile-num3 #{current_user.followings.count}
+        %p.profile-string Followings
+
+.account_post_images
+  .account_post_container
+    - current_user.articles.each_with_index do |item, index1|
+      .slideshow
+        %div{:class => "grid slideshow_slides_#{index1+1}"}
+          -item.portraits.each_with_index do |photo, index2|
+            = link_to root_path, {:class => "slide grid_item_#{index2+1}"} do
+              = image_tag photo
+        %div{:class => "slideshow_indicator slideshow_indicator_#{index1+1}"}
+
+  .under

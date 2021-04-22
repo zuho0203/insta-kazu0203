@@ -25,18 +25,18 @@ import { csrfToken } from 'rails-ujs'
 
 axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
 
-window.addEventListener('load', () => {
-    const uploader = document.querySelector('.uploader');
-    uploader.addEventListener('change', (e) => {
-      const file = uploader.files[0];
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => {
-        const image = reader.result;
-        document.querySelector('.avatar').setAttribute('src', image);
-      }
-    });
-});
+// window.addEventListener('load', () => {
+//     const uploader = document.querySelector('.uploader');
+//     uploader.addEventListener('change', (e) => {
+//       const file = uploader.files[0];
+//       const reader = new FileReader();
+//       reader.readAsDataURL(file);
+//       reader.onload = () => {
+//         const image = reader.result;
+//         document.querySelector('.avatar').setAttribute('src', image);
+//       }
+//     });
+// });
 
 const handleHeartDisplay = (hasLiked) => {
   if (hasLiked) {
@@ -57,7 +57,7 @@ document.addEventListener('turbolinks:load', () => {
         
         $('.comments-container').append(
           `<img class="card_detail" src='${comment.user.avatar_url}'>
-          <p>${comment.user.account}</p></p><p>${comment.content}</p>`
+          <p>${comment.user.account}</p><p>${comment.content}</p>`
           
         )
       })
@@ -78,10 +78,9 @@ document.addEventListener('turbolinks:load', () => {
       })
         .then((res) => {
           const comment = res.data
-          
           $('.comments-container').append(
           `<img class="card_detail" src='${comment.user.avatar_url}'>
-          <p>${comment.user.account}</p></p><p>${comment.content}</p>`
+          <p>${comment.user.account}</p><p>${comment.content}</p>`
           )
           $('#comment_content').val('')
         })

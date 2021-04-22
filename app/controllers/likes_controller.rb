@@ -22,4 +22,5 @@ class LikesController < ApplicationController
     like.destroy!
     render json: { status: 'ok' }
   end
+
 end

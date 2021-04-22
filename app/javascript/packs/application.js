@@ -78,7 +78,6 @@ document.addEventListener('turbolinks:load', () => {
       })
         .then((res) => {
           const comment = res.data
-          
           $('.comments-container').append(
           `<img class="card_detail" src='${comment.user.avatar_url}'>
           <p>${comment.user.account}</p><p>${comment.content}</p>`

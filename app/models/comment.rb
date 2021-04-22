@@ -4,11 +4,11 @@ class Comment < ApplicationRecord
 
     validates :content, presence: true
 
-    # after_create :send_email
+    after_create :send_email
 
     private
     def send_email
-        TocommentMailer.send_comment_reply(user).deliver_later
+        TocommentMailer.comment_reply(user).deliver_later
     end
 
 end

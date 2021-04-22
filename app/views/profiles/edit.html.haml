@@ -5,7 +5,7 @@
 
   = form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f|
     %div
-      = f.label :avatar, 'アバター'
+      = f.label :avatar, 'avatar'
     %div
       = f.file_field :avatar
     %div

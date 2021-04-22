@@ -57,7 +57,7 @@ document.addEventListener('turbolinks:load', () => {
         
         $('.comments-container').append(
           `<img class="card_detail" src='${comment.user.avatar_url}'>
-          <p>${comment.user.account}</p></p><p>${comment.content}</p>`
+          <p>${comment.user.account}</p><p>${comment.content}</p>`
           
         )
       })
@@ -81,7 +81,7 @@ document.addEventListener('turbolinks:load', () => {
           
           $('.comments-container').append(
           `<img class="card_detail" src='${comment.user.avatar_url}'>
-          <p>${comment.user.account}</p></p><p>${comment.content}</p>`
+          <p>${comment.user.account}</p><p>${comment.content}</p>`
           )
           $('#comment_content').val('')
         })

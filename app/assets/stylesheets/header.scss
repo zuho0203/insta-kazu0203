@@ -13,6 +13,8 @@ $back-icon-size: 16px;
 
   a {
     color: white;
+    font-family: serif;
+    font-size: 24px;
   }
 
   a.header_loginBtn {
@@ -41,6 +43,7 @@ $back-icon-size: 16px;
     color: white;
     line-height: $avatar-size;
     font-size: $font-lg;
+    
   }
 
   &_avatar {

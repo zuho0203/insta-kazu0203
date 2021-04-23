@@ -31,6 +31,8 @@ gem 'active_model_serializers'
 gem 'sidekiq'
 gem 'active_decorator'
 gem 'kaminari', '~> 0.17.0'
+gem 'faker'
+gem 'factory_bot_rails'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -41,6 +43,7 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'better_errors'
   gem 'pry-byebug'
+  gem 'rspec-rails'
 end
 
 group :development do

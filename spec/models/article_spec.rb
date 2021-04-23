@@ -11,6 +11,18 @@ RSpec.describe Article, type: :model do
     end
   end
 
+  context 'contentが1文字以上140字以内で入力され、画像が6枚以下で投稿される場合' do
+    let!(:article) { build(:article, user: user) }
+
+    before do
+      article.portraits = fixture_file_upload('spec/fixtures/test.png')
+    end
+
+    it '記事を保存できる' do
+      expect(article).to be_valid
+    end
+  end
+
   context 'contentが入力されていない場合' do
     let!(:article) { build(:article, content: Faker::Lorem.characters(number: 0), user: user) }
 

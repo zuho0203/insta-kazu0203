@@ -11,7 +11,7 @@ RSpec.describe Article, type: :model do
     end
   end
 
-  context 'contentが1文字以上140字以内で入力され、画像が6枚以下で投稿される場合' do
+  context 'contentが1文字以上140字以内で入力され、画像が5枚以下で投稿される場合' do
     let!(:article) { build(:article, user: user) }
 
     before do

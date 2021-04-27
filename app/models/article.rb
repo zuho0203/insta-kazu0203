@@ -4,15 +4,20 @@ class Article < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
   has_many :comments, dependent: :destroy
-
   has_rich_text :content
-
-  def display_created_at
-    I18n.l(self.created_at, format: :default)
-  end
+  
+  validate :validate_images
+  validates :content, length: { minimum: 1, maximum: 140 }
+  validates :content, presence: true
 
   def like_count
     likes.count
+  end
+
+  private
+  def validate_images
+    return if portraits.count <= 5
+    errors.add(:portraits, 'You can upload max 5 images')
   end
 
 end

@@ -2,6 +2,3 @@
   = render 'commons/tabs'
   - @articles.each do |article|
     = render 'commons/article', article: article
-  = link_to new_article_path do
-    .float_btn
-      %i.fas.fa-plus-circle

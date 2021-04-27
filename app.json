@@ -1,0 +1,16 @@
+{
+    "name": "family board",
+    "description": "This is familyboard",
+    "keywords": [],
+    "website": "",
+    "repository": "https://github.com/zuho0203/insta-kazu0203",
+    "env": {},
+    "addons": [
+      "heroku-postgresql:hobby-dev"
+    ],
+    "buildpacks": [{
+      "url": "heroku/nodejs"
+    }, {
+      "url": "heroku/ruby"
+    }]
+  }

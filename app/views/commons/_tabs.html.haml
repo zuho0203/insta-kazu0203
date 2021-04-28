@@ -1,5 +1,5 @@
 .tabs
-  .tabs_item{class: "#{add_active_class(root_path)}"}
+  .tabs_item{class: "#{'active' if current_page?(root_path)}"}
     = link_to '家族の新しい投稿', root_path
-  .tabs_item{class: "#{add_active_class(timeline_path)}"}
+  .tabs_item{class: "#{'active' if current_page?(timeline_path)}"}
     = link_to 'フォローした家族に1ヶ月以内の投稿', timeline_path

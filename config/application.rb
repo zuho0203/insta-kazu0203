@@ -1,5 +1,6 @@
 require 'devise'
 require 'sidekiq'
+require "active_model_serializers"
 
 require_relative 'boot'
 

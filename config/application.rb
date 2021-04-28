@@ -1,4 +1,6 @@
 require 'devise'
+require 'sidekiq'
+
 require_relative 'boot'
 
 require 'rails/all'

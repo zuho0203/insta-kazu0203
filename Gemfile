@@ -32,7 +32,8 @@ gem 'sidekiq'
 gem 'active_decorator'
 gem 'kaminari', '~> 0.17.0'
 gem 'faker'
-gem 'factory_bot_rails'
+gem 'letter_opener'
+gem 'letter_opener_web', '~> 1.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -44,6 +45,7 @@ group :development, :test do
   gem 'better_errors'
   gem 'pry-byebug'
   gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -54,8 +56,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'erb2haml'
-  gem 'letter_opener'
-  gem 'letter_opener_web', '~> 1.0'
 
 end
 

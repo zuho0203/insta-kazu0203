@@ -25,7 +25,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
 gem 'aws-sdk-s3', require: false
-gem 'hamlit'
+
 
 gem 'active_model_serializers'
 gem 'sidekiq'
@@ -72,4 +72,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :development, :production, :test do
   gem 'devise'
+  gem 'hamlit'
 end

@@ -2,7 +2,6 @@ require 'devise'
 require 'sidekiq'
 require 'active_model_serializers'
 require 'hamlit'
-require 'javascript_pack_tag'
 
 require_relative 'boot'
 

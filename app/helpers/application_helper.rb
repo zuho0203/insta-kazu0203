@@ -1,2 +1,2 @@
-module　Webpacker
+module Webpacker
 end

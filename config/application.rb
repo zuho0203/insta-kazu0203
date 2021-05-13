@@ -7,6 +7,8 @@ require_relative 'boot'
 
 require 'rails/all'
 
+require 'active_record/railtie'
+require 'sprockets/railtie'
 require 'action_controller/railtie'
 require 'action_view/railtie'
 

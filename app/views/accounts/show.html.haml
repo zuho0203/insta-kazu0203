@@ -2,25 +2,31 @@
   %p.profile-name
     = @account
   .circle-avatar
-    = image_tag current_user.profile.avatar
+    = image_tag @user.profile.avatar
+    .profilePage_user_actionButton
+      - if @user == current_user
+        = link_to 'Edit', edit_profile_path
+      - else
+        - if current_user&.has_followed?(@user)
+          = link_to 'フォローをやめる', account_unfollows_path(@user), data: {method: 'post'}
+        -else
+          = link_to 'フォローする', account_follows_path(@user), data: {method: 'post'}
   .profile-text
     .profile-two
       %p.profile-num
-        = current_user.articles.count
+        = @user.articles.count
       %p.profile-string
         Posts
     .profile-two.follower-following-wrap
-      = link_to followeruser_path, class: 'profile_info follower' do
-        .profile-num.profile-num2 #{current_user.followers.count}
-        %p.profile-string Followers
+      .profile-num.profile-num2 #{current_user.followers.count}
+      %p.profile-string Followers
     .profile-two.follower-following-wrap
-      = link_to followinguser_path, class: 'profile_info following' do
-        .profile-num.profile-num3 #{current_user.followings.count}
-        %p.profile-string Followings
+      .profile-num.profile-num3 #{current_user.followings.count}
+      %p.profile-string Followings
 
 .account_post_images
   .account_post_container
-    - current_user.articles.each_with_index do |item, index1|
+    - @user.articles.each_with_index do |item, index1|
       .slideshow
         %div{:class => "grid slideshow_slides_#{index1+1}"}
           -item.portraits.each_with_index do |photo, index2|

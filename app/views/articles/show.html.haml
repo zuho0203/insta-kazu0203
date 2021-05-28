@@ -5,7 +5,7 @@
     - @article.portraits.each do |portrait|
       = image_tag portrait
   .article_detail
-    = link_to profile_path do
+    = link_to account_path(@article.user) do
       = image_tag @article.user.avatar_image
       = @article.user.account
       .card_detail_time

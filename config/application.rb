@@ -14,7 +14,7 @@ if Rails.env.development? || Rails.env.test?
   Dotenv::Railtie.load
 end
 
-module InstaKazu0203
+module FamilyBoard
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0

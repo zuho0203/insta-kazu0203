@@ -1,6 +1,5 @@
 .container
   .background
-    = image_tag 'sign_up_back.jpg'
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .field
         = f.label :Email

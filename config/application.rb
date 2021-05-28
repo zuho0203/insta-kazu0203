@@ -4,7 +4,6 @@ require 'active_model_serializers'
 require 'hamlit'
 require 'webpacker'
 require_relative 'boot'
-require 'avatar'
 
 require 'rails/all'
 
@@ -15,7 +14,7 @@ if Rails.env.development? || Rails.env.test?
   Dotenv::Railtie.load
 end
 
-module FamilyBoard
+module InstaKazu0203
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0

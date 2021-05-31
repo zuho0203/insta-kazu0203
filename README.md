@@ -25,7 +25,7 @@ https://vast-retreat-33770.herokuapp.com/
 ・RSpec  
 
 #### 機能
-・ユーザ登録、ログイン機能(devise)
+・ユーザ登録、ログイン機能(devise)  
 ・投稿機能  
   - 文章投稿(active_decorator)  
   - 複数画像投稿  

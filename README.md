@@ -19,7 +19,6 @@ https://vast-retreat-33770.herokuapp.com/
 ・Ruby 2.6.5  
 ・Ruby on Rails 6.0.3.6  
 ・PostgreSQL 13.2  
-・Puma  
 ・AWS  
 　-EC2  
 ・RSpec  
@@ -35,7 +34,8 @@ https://vast-retreat-33770.herokuapp.com/
 　- 投稿画像一覧表示  
 　- タイムライン表示  
 ・いいね機能(Ajax)  
-・コメント機能(Ajax)  
+・コメント機能(Ajax)
+・メールによるコメント通知機能(letter_opener)
 ・フォロー機能  
 
 #### テスト

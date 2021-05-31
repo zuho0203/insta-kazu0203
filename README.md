@@ -1,24 +1,45 @@
-# README
+#### タイトル
+Family Board  
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### 概要
+家族間の情報共有や家族内でのタスク管理、また写真を共有するためのアプリケーションとなります。
 
-Things you may want to cover:
+文章や画像(複数可)の投稿機能、また投稿記事にコメント(Ajax)することができ家族間での情報やToDoの共有がスムーズになります。
+また、投稿した画像はプロフィールページに一覧表示されるので家族写真の共有もできます。
 
-* Ruby version
+コメント投稿及びいいね機能にAjaxを採用し、ページの更新をスピーディにしました。
+また、投稿されてから1ヶ月以内の記事を表示するタイムライン機能では、N+1問題を考慮して実装しました。
 
-* System dependencies
+ここに画像を載せる
 
-* Configuration
+#### URL
+https://vast-retreat-33770.herokuapp.com/
 
-* Database creation
+#### 使用技術
+・Ruby 2.6.5  
+・Ruby on Rails 6.0.3.6  
+・PostgreSQL 13.2  
+・Puma  
+・AWS  
+　-EC2  
+・RSpec  
 
-* Database initialization
+#### 機能
+・ユーザ登録、ログイン機能(devise)
+・投稿機能  
+  - 文章投稿(active_decorator)  
+  - 複数画像投稿  
+  - 投稿編集  
+  - 投稿削除  
+・一覧表示機能  
+　- 投稿画像一覧表示  
+　- タイムライン表示  
+・いいね機能(Ajax)  
+・コメント機能(Ajax)  
+・フォロー機能  
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#### テスト
+・Rspec  
+　- 単体テスト(model spec)  
+　- 機能テスト(request spec)  
+　- 結合テスト(system spec)  

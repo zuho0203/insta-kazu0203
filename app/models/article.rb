@@ -7,7 +7,7 @@ class Article < ApplicationRecord
   has_rich_text :content
   
   validate :validate_images
-  validates :content, length: { minimum: 1, maximum: 140 }
+  validates :content, length: { minimum: 1, maximum: 1000 }
   validates :content, presence: true
 
   def like_count

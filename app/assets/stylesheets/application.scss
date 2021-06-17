@@ -1,3 +1,6 @@
+/*
+*= require simple_calendar
+*/
 @import 'header';
 @import 'tabs';
 @import 'variables';
@@ -8,6 +11,7 @@
 @import 'flash';
 @import 'common';
 @import 'profile';
+@import 'events';
 
 html {
   word-spacing: 1px;

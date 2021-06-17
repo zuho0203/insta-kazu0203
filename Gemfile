@@ -35,6 +35,7 @@ gem 'faker'
 gem 'letter_opener'
 gem 'letter_opener_web', '~> 1.0'
 gem 'unicorn', '5.4.1'
+gem 'simple_calendar', '~> 2.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

@@ -1,0 +1,11 @@
+%p#notice= notice
+%p
+  %strong タイトル
+  = @event.title
+%p
+  %strong 時間
+  = @event.start_time.strftime("%Y-%m-%d %H:%M")
+%p
+  %strong 内容
+  = @event.content
+= link_to 'Delete', event_path(@event), data: { method: 'delete' , confirm: '本当に削除してもよろしいですか？' }

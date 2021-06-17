@@ -1,0 +1,7 @@
+= link_to 'イベント追加', new_event_path
+= month_calendar events: @events do |date, events|
+  = date.day
+  - events.each do |event|
+    = link_to event_path(event) do
+      %div
+        = event.title

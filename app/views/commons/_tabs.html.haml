@@ -3,7 +3,7 @@
     = link_to '家族の新しい投稿', root_path
   .tabs_item{class: "#{'active' if current_page?(timeline_path)}"}
     = link_to 'フォローした家族の1ヶ月以内の投稿', timeline_path
-  .tabs_item{class: "#{'active' if current_page?(root_path)}"}
-    = link_to 'フォトアルバム', timeline_path
+  .tabs_item{class: "#{'active' if current_page?(photos_path)}"}
+    = link_to 'フォトアルバム', photos_path
   .tabs_item{class: "#{'active' if current_page?(events_path)}"}
     = link_to 'スケジュール', events_path

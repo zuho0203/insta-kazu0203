@@ -1,0 +1,10 @@
+.account_post_images
+  .account_post_container
+    - @articles.each_with_index do |item, index1|
+      .slideshow
+        %div{:class => "grid slideshow_slides_#{index1+1}"}
+          -item.portraits.each_with_index do |photo, index2|
+            = link_to root_path, {:class => "slide grid_item_#{index2+1}"} do
+              = image_tag photo
+        %div{:class => "slideshow_indicator slideshow_indicator_#{index1+1}"}
+

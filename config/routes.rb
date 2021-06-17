@@ -2,6 +2,7 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
   resources :events
+  resource :photos, only: [:show]
 
   mount Sidekiq::Web => '/sidekiq' if Rails.env.development?
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
   resources :articles do
     resource :like, only: [:show, :create, :destroy]
     resources :comments, only: [:index, :new, :create, :destroy]
+ 
   end
 
   resource :profile, only: [:show, :edit, :update, :create]
@@ -23,7 +25,6 @@ Rails.application.routes.draw do
   resources :accounts, only: [:show] do
     resources :follows, only: [:create]
     resources :unfollows, only: [:create]
-
   end
   
 end

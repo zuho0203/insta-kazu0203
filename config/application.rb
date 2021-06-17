@@ -4,6 +4,7 @@ require 'active_model_serializers'
 require 'hamlit'
 require 'webpacker'
 require_relative 'boot'
+require 'simple_calendar'
 
 require 'rails/all'
 

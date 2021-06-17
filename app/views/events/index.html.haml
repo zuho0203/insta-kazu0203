@@ -1,7 +1,9 @@
-= link_to 'イベント追加', new_event_path
-= month_calendar events: @events do |date, events|
-  = date.day
-  - events.each do |event|
-    = link_to event_path(event) do
-      %div
-        = event.title
+.container
+  = link_to 'スケジュール追加', new_event_path, class: 'btn btn--blue btn--radius'
+  .container
+    = month_calendar events: @events do |date, events|
+      = date.day
+      - events.each do |event|
+        = link_to event_path(event) do
+          %div
+            = event.title

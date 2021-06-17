@@ -8,18 +8,22 @@ class EventsController < ApplicationController
   end
 
   def create
-    Event.create(event_parameter)
-    redirect_to root_path
+    Event.create(event_params)
+    redirect_to events_path
   end
 
   def show
     @event = Event.find(params[:id])
   end
 
+  def edit
+    @event = Event.find(params[:id])
+  end
+
   def update
-    @event = events.find(params[:id])
-    if @event.update(article_params)
-      redirect_to event_path, notice: '更新できました'
+    @event = Event.find(params[:id])
+    if @event.update(event_params)
+      redirect_to events_path, notice: '更新できました'
     else
       flash.now[:error] = '更新できませんでした'
       render :edit
@@ -33,7 +37,7 @@ class EventsController < ApplicationController
   end
 
   private
-  def event_parameter
+  def event_params
     params.require(:event).permit(:title, :content, :start_time)
   end
 end

@@ -1,5 +1,21 @@
 @import './variables'; 
 
+.btn--blue,
+a.btn--blue {
+  color: white;
+  background-color: $primary-color;
+  padding: 16px 0;
+}
+.btn--blue:hover,
+a.btn--orange:hover {
+  color: white;
+  background: $primary-color;
+}
+
+a.btn--radius {
+   border-radius: 100vh;
+}
+
 .btn-primary {
 
   background-color: $primary-color;
